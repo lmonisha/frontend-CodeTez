@@ -1,0 +1,77 @@
+<div class="">
+    <app-side-nav></app-side-nav>
+    <div class="main-section">
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>EmpId</th>
+                <th>Emp Name</th>
+                <th>day Amount</th>
+                <th>monthAmount</th>
+                <th>yearAmount</th>
+                <th>workingDays</th>
+                <th>monthFromUser</th>
+                <th>yearFromUser</th>
+                <th>Actions</th> <!-- Add Actions header -->
+            </tr>
+          
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of salaryList; let i = index">
+             
+                <td>
+                    <ng-container *ngIf="!emp.editMode">{{ emp.empId }}</ng-container>
+                    <input *ngIf="emp.editMode" type="text" [(ngModel)]=" emp.empId">
+                </td>
+                <td>
+                    <ng-container *ngIf="!emp.editMode">{{ emp.empName }}</ng-container>
+                    <input *ngIf="emp.editMode" type="text" [(ngModel)]=" emp.empName">
+                </td>
+                <td>
+                    <ng-container *ngIf="!emp.editMode">{{ emp.monthFromUser }}</ng-container>
+                    <input *ngIf="emp.editMode" type="tel" [(ngModel)]="emp.monthFromUser">
+                </td>
+    
+                <td>
+                    <ng-container *ngIf="!emp.editMode">{{ emp.yearFromUser }}</ng-container>
+                    <input *ngIf="emp.editMode" type="tel" [(ngModel)]="emp.yearFromUser">
+                </td>
+                
+                <td>
+                    <ng-container *ngIf="!emp.editMode">{{ emp.dayAmount }}</ng-container>
+                    <input *ngIf="emp.editMode" type="text" [(ngModel)]="emp.dayAmount">
+                </td>
+    
+                <td>
+                    <ng-container *ngIf="!emp.editMode">{{ emp.workingDays }}</ng-container>
+                    <input *ngIf="emp.editMode" type="email" [(ngModel)]="emp.workingDays">
+                </td>
+               
+                <td>
+                    <ng-container *ngIf="!emp.editMode">{{ emp.monthAmount }}</ng-container>
+                    <input *ngIf="emp.editMode" type="text" [(ngModel)]="emp.monthAmount">
+                </td>
+                <td>
+                    <ng-container *ngIf="!emp.editMode">{{ emp.yearAmount }}</ng-container>
+                    <input *ngIf="emp.editMode" type="number" [(ngModel)]="emp.yearAmount">
+                </td>
+                
+    
+                <td>
+                    <button (click)="toggleEditMode(emp)">
+                        {{ emp.editMode ? 'Save' : 'Edit' }}
+                    </button>
+                </td>
+    
+                <td>
+                    <button (click)="toggledeleteMode(emp)"> Delete
+                        <!-- {{ emp.deleteMode ? 'Save' : 'Edit' }} -->
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>

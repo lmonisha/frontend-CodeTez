@@ -1,0 +1,57 @@
+<div class="">
+  <app-side-nav></app-side-nav>
+  <div class="main-section">
+    <form [formGroup]="employeeForm">
+      <div class="formInner">
+        <div class="formInput">
+          <label for="employeeType">Employee Type:</label>
+          <select id="employeeType" formControlName="employeeType">
+            <option *ngFor="let type of employeeTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+        <div class="formInput">
+          <label>Per Day Salary :</label>
+          <input type="number" name="daySalary" formControlName="DaySalary">  
+        </div>
+        <div class="formInput">
+          <label for="monthEmp">Month:</label>
+          <select id="monthEmp" formControlName="selectedMonth">
+            <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+          </select> 
+        </div>
+        <div class="formInput">
+
+          <label for="year">Select Year:</label>
+          <select id="year" formControlName="selectedYear">
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+          </select>
+        </div>
+
+         
+        <button (click)="calculate()">Submit</button>
+
+      </div>
+      <div class="formInner">
+        <div class="formInput">
+          <label>No.of.Working Days :</label>
+          <input type="number" name="totalworkingDays" formControlName="workingDays">  
+        </div>
+
+        <div class="formInput">
+          <label>Total salary for the month :</label>
+          <input type="number" name="totalmonthsalary" formControlName="totalmonthsalary">  
+        </div>
+        <div class="formInput">
+
+          <label>Total salary for the year :</label>
+          <input type="number" name="totalyearsalary" formControlName="totalyearsalary">  
+        </div>
+      
+          <div class="buttonGroup">
+            <button (click)="formsubmit(employeeForm)">Add Employee Salary</button>  
+            <button (click)="View()">ViewAll Employee</button>
+          </div>
+      </div>
+    </form>
+  </div>
+</div>

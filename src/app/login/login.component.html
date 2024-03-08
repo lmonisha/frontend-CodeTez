@@ -1,0 +1,27 @@
+
+<!-- <input type="email" name="EmailId" placeholder="aaa@domain.com"><br><br>
+<input type="password" name="password"><br><br>
+<button (click)="login()">Submit</button> -->
+
+
+<div class="loginSection">
+    
+<form [formGroup]="loginForm">
+    <h1>Login Page</h1>
+    <mat-form-field class="example-full-width">
+        <mat-label>
+            Email
+        </mat-label>
+        <input type="email" matInput formControlName="emailId" placeholder="aaa@gmail.com">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>
+            Password
+        </mat-label>
+        <input type="password" matInput formControlName="password">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button (click)="submit()">Submit</button>
+</form>
+</div>

@@ -1,0 +1,46 @@
+<p>emp-new works!</p>
+<div class="">
+    <div class="main-section">
+        {{newempForm.value|json}}
+        <div class="formInner">
+            <form [formGroup]="newempForm">
+                <div class="formInput">
+                    <label>FirstName</label>
+                    <input type="text" formControlName="firstName" placeholder="">
+                </div>
+                <div class="formInput">
+                    <label>LastName</label>
+                    <input type="text" formControlName="lastName" placeholder="">
+                </div>
+                <div class="formInput">
+                    <label>Gender</label>
+                    <input type="text" formControlName="gender" placeholder="">
+                </div>
+                <div class="formInput">
+                    <label>Role</label>
+                    <input type="text" formControlName="role" placeholder="">
+                </div>
+                <div class="formInput">
+                    <label>designation</label>
+                    <input type="text" formControlName="designation" placeholder="">
+                </div>
+                <div class="formInput">
+                    <label>Phoneno</label>
+                    <input type="text" formControlName="phoneno" placeholder="">
+                </div>
+                <div class="formInput">
+                    <label>email</label>
+                    <input type="text" formControlName="email" placeholder="">
+                </div>
+
+                <div class="formInput">
+                    <label>address</label>
+                    <input type="text" formControlName="address" placeholder="">
+                </div>
+                <button (click)="addUser()" style="background-color: blueviolet;">Submit</button>
+            </form>
+
+        </div>
+
+    </div>
+</div>

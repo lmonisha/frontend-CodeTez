@@ -1,0 +1,75 @@
+
+<div class="">
+    <app-side-nav></app-side-nav>
+    <div class="main-section">
+        <div class="buttonSection">
+        <button (click)="addEmployee()">Add</button>
+
+        </div>
+      <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Role</th>
+                    <th>Designation</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Actions</th> <!-- Add Actions header -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emp of employeeList; let i = index">
+
+                    <td>
+                        <ng-container *ngIf="!emp.editMode">{{ emp.firstName }}</ng-container>
+                        <input *ngIf="emp.editMode" type="text" [(ngModel)]="emp.firstName">
+                    </td>
+                    <td>
+                        <ng-container *ngIf="!emp.editMode">{{ emp.lastName }}</ng-container>
+                        <input *ngIf="emp.editMode" type="text" [(ngModel)]="emp.lastName">
+                    </td>
+                    <td>
+                        <ng-container *ngIf="!emp.editMode">{{ emp.gender }}</ng-container>
+                        <input *ngIf="emp.editMode" type="text" [(ngModel)]="emp.gender">
+                    </td>
+                    <td>
+                        <ng-container *ngIf="!emp.editMode">{{ emp.role }}</ng-container>
+                        <input *ngIf="emp.editMode" type="text" [(ngModel)]="emp.role">
+                    </td>
+                    <td>
+                        <ng-container *ngIf="!emp.editMode">{{ emp.designation }}</ng-container>
+                        <input *ngIf="emp.editMode" type="number" [(ngModel)]="emp.salary">
+                    </td>
+                    <td>
+                        <ng-container *ngIf="!emp.editMode">{{ emp.email }}</ng-container>
+                        <input *ngIf="emp.editMode" type="email" [(ngModel)]="emp.email">
+                    </td>
+                    <td>
+                        <ng-container *ngIf="!emp.editMode">{{ emp.phoneno }}</ng-container>
+                        <input *ngIf="emp.editMode" type="tel" [(ngModel)]="emp.phone">
+                    </td>
+
+                    <td>
+                        <ng-container *ngIf="!emp.editMode">{{ emp.address }}</ng-container>
+                        <input *ngIf="emp.editMode" type="tel" [(ngModel)]="emp.address">
+                    </td>
+
+                    <td>
+                        <button (click)="toggleEditMode(emp)">
+                            {{ emp.editMode ? 'Save' : 'Edit' }}
+                        </button>
+                 
+                        <button (click)="toggledeleteMode(emp)"> Delete
+                            <!-- {{ emp.deleteMode ? 'Save' : 'Edit' }} -->
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
